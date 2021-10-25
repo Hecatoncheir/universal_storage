@@ -1,8 +1,8 @@
 @TestOn("browser")
-library storage_with_cache_test;
+library universal_storage_with_cache_test;
 
 import 'package:test/test.dart';
-import 'package:storage/storage_with_cache.dart';
+import 'package:universal_storage/storage_with_cache.dart';
 
 void main() {
   group("StorageWithCache with cache", () {

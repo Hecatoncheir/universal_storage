@@ -1,8 +1,8 @@
-library storage;
+library universal_storage;
 
 import 'package:hive/hive.dart';
 
-import 'package:storage/interface.dart';
+import 'package:universal_storage/interface.dart';
 
 export 'interface.dart';
 

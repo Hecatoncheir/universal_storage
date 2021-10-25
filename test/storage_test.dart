@@ -1,8 +1,8 @@
 @TestOn("browser")
-library storage_test;
+library universal_storage_test;
 
-import 'package:storage/storage.dart';
 import 'package:test/test.dart';
+import 'package:universal_storage/storage.dart';
 
 void main() {
   group("Storage", () {
