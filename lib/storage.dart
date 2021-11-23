@@ -2,9 +2,8 @@ library universal_storage;
 
 import 'package:hive/hive.dart';
 
-import 'package:universal_storage/interface.dart';
-
-export 'interface.dart';
+import 'storage_interface.dart';
+export 'storage_interface.dart';
 
 class Storage<K, V> implements StorageInterface<K, V> {
   final String _name;

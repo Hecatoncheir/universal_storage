@@ -2,21 +2,18 @@ library universal_storage_with_cache;
 
 import 'package:hive/hive.dart';
 
-import 'package:universal_storage/interface.dart';
-
-export 'interface.dart';
+import 'storage_interface.dart';
+export 'storage_interface.dart';
 
 class StorageWithCache<K, V> implements StorageInterface<K, V> {
   final String _name;
   final Map<K, V> _cache;
+  Box<V>? _box;
 
   StorageWithCache({
     required String name,
   })  : _name = name,
         _cache = Map<K, V>();
-
-  Box<V>? _box;
-  Future<Box<V>> _open() async => _box ??= await Hive.openBox<V>(_name);
 
   @override
   Future<void> create(K key, V value) async {
@@ -78,4 +75,6 @@ class StorageWithCache<K, V> implements StorageInterface<K, V> {
       );
     }
   }
+
+  Future<Box<V>> _open() async => _box ??= await Hive.openBox<V>(_name);
 }
