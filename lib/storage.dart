@@ -22,32 +22,20 @@ class Storage<K, V> implements StorageInterface<K, V> {
 
   @override
   Future<void> create(K key, V value) async {
-    if (_isCached) {
-      _cache![key] = value;
-      await _open().then((database) => database.put(key, value));
-    } else {
-      await _open().then((database) => database.put(key, value));
-    }
+    if (_isCached) _cache![key] = value;
+    await _open().then((database) => database.put(key, value));
   }
 
   @override
   Future<void> createAll(Map<K, V> entries) async {
-    if (_isCached) {
-      _cache!.addAll(entries);
-      await _open().then((database) => database.putAll(entries));
-    } else {
-      await _open().then((database) => database.putAll(entries));
-    }
+    if (_isCached) _cache!.addAll(entries);
+    await _open().then((database) => database.putAll(entries));
   }
 
   @override
   Future<void> delete(K key) async {
-    if (_isCached) {
-      _cache!.remove(key);
-      await _open().then((database) => database.delete(key));
-    } else {
-      await _open().then((database) => database.delete(key));
-    }
+    if (_isCached) _cache!.remove(key);
+    await _open().then((database) => database.delete(key));
   }
 
   @override
@@ -56,10 +44,8 @@ class Storage<K, V> implements StorageInterface<K, V> {
       for (final key in keys) {
         _cache!.remove(key);
       }
-      await _open().then((database) => database.deleteAll(keys));
-    } else {
-      await _open().then((database) => database.deleteAll(keys));
     }
+    await _open().then((database) => database.deleteAll(keys));
   }
 
   @override

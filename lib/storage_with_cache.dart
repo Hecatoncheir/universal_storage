@@ -43,11 +43,8 @@ class StorageWithCache<K, V> implements StorageInterface<K, V> {
 
   @override
   Future<V?> read(K key) async {
-    if (_cache[key] != null) {
-      return _cache[key] as V;
-    } else {
-      return _open().then((database) => database.get(key));
-    }
+    if (_cache[key] != null) return _cache[key] as V;
+    return _open().then((database) => database.get(key));
   }
 
   @override
