@@ -45,7 +45,7 @@ dart_code_metrics:
           - lib/ui/**
           - lib/theme/**
     - no-object-declaration
-    - prefer-conditional-expressions
+#    - prefer-conditional-expressions
     - prefer-trailing-comma:
         exclude:
           - test/**
